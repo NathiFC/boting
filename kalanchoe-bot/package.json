@@ -1,0 +1,14 @@
+{
+  "name": "kalanchoe-bot",
+  "version": "1.0.0",
+  "description": "Bot WhatsApp Kalanchoe para Railway",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.3.8",
+    "whatsapp-web.js": "^1.23.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
