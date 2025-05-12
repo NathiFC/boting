@@ -1,5 +1,28 @@
-const { Client, LocalAuth } = require('whatsapp-web.js');
-const qrcode = require('qrcode-terminal');
+
+const { Client } = require('whatsapp-web.js');
+const qrcode = require('qrcode');
+const fs = require('fs');
+
+// Crie um cliente
+const client = new Client();
+
+// Quando o QR Code for gerado
+client.on('qr', (qr) => {
+    console.log('Gerando o QR Code...');
+    qrcode.toFile('./qrcode.png', qr, function (err) {
+        if (err) throw err;
+        console.log('QR Code gerado e salvo como qrcode.png');
+    });
+});
+
+// Quando o cliente for autenticado
+client.on('ready', () => {
+    console.log('O cliente está pronto!');
+});
+
+// Inicie o cliente
+client.initialize();
+
 
 const client = new Client({
     authStrategy: new LocalAuth(),
